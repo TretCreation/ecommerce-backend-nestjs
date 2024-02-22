@@ -6,7 +6,6 @@ const prisma = new PrismaClient()
 
 async function main() {
   try {
-    //* Users
     await prisma.user.deleteMany()
     console.log("Deleted Users 🚮")
 
