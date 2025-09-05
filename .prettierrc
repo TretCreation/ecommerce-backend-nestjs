@@ -6,5 +6,6 @@
   "semi": false,
   "trailingComma": "none",
   "useTabs": false,
-  "printWidth": 125
+  "printWidth": 125,
+  "bracketSpacing": true
 }
