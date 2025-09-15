@@ -1,7 +1,7 @@
-import { PrismaClient } from '@/prisma/generated';
-import { faker } from '@faker-js/faker';
+import { faker } from "@faker-js/faker"
+import { PrismaClient } from "@prisma/client"
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 async function main() {
   // // Seed some brands
@@ -19,20 +19,20 @@ async function main() {
     name: faker.commerce.productName(),
     image: faker.image.url(),
     price: Number(faker.commerce.price({ min: 100, max: 2000 })),
-    rating: Number(faker.commerce.price({ min: 0, max: 5 })),
+    rating: Number(faker.commerce.price({ min: 0, max: 5 }))
     // brandId: faker.datatype.number({ min: 1, max: 3 }),
     // typeId: faker.datatype.number({ min: 1, max: 3 }),
-  }));
+  }))
 
-  await prisma.product.createMany({ data: productsData });
+  await prisma.product.createMany({ data: productsData })
 }
 
 main()
-  .then(() => console.log('Seeding finished'))
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
+  .then(() => console.log("Seeding finished"))
+  .catch(e => {
+    console.error(e)
+    process.exit(1)
   })
   .finally(async () => {
-    await prisma.$disconnect();
-  });
+    await prisma.$disconnect()
+  })
